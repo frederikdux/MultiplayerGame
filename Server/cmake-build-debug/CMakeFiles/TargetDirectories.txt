@@ -1,0 +1,3 @@
+C:/Users/Frederik/CLionProjects/GameServerTest/Server/cmake-build-debug/CMakeFiles/Server.dir
+C:/Users/Frederik/CLionProjects/GameServerTest/Server/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Frederik/CLionProjects/GameServerTest/Server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
