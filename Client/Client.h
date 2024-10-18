@@ -9,7 +9,7 @@
 
 class Client {
 public:
-    Client(GameInformation &gameInformation);
+    Client(GameInformation& gameInformation);
     ~Client();
 
     void sendMessage(const std::string& message);
@@ -18,7 +18,8 @@ public:
     void sendPositionUpdate(float x, float y);
     void sendPositionAndVelocityUpdate(float x, float y, float vx, float vy);
     void sendPlayerUpdate(float x, float y, float vx, float vy, float rotation);
-    void sendBulletShot(float x, float y, float vx, float vy);
+    void sendBulletShot(int clientId, int bulletId, float x, float y, float vx, float vy);
+    void reconnectToServer();
 
     [[nodiscard]] sf::TcpSocket &getSocket() {
         return socket;
@@ -30,10 +31,6 @@ public:
 
     std::string getName() const {
         return name;
-    }
-
-    int getHealth() const {
-        return health;
     }
 
 private:
@@ -54,5 +51,5 @@ private:
     GameInformation& gameInformation;
     int id = -1;
     std::string name;
-    int health = 100;
+    ServerData currentServer;
 };

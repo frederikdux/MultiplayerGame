@@ -9,14 +9,18 @@
 
 class Bullet {
 private:
+    int playerId;
+    int bulletIdOfPlayer;
     sf::Vector2f position;
     sf::Vector2f velocity;
     float rotation;
     int baseDamage;
 
 public:
-    Bullet(const sf::Vector2f &position, const sf::Vector2f &velocity, float rotation, int base_damage)
-        : position(position),
+    Bullet(const int playerId, const int bulletIdOfPlayer, const sf::Vector2f &position, const sf::Vector2f &velocity, float rotation, int base_damage)
+        : playerId(playerId),
+          bulletIdOfPlayer(bulletIdOfPlayer),
+          position(position),
           velocity(velocity),
           rotation(rotation),
           baseDamage(base_damage) {
@@ -52,6 +56,22 @@ public:
 
     void setBaseDamage(int base_damage) {
         baseDamage = base_damage;
+    }
+
+    [[nodiscard]] int getPlayerId() const {
+        return playerId;
+    }
+
+    void setPlayerId(int player_id) {
+        playerId = player_id;
+    }
+
+    [[nodiscard]] int getBulletIdOfPlayer() const {
+        return bulletIdOfPlayer;
+    }
+
+    void setBulletIdOfPlayer(int bullet_id_of_player) {
+        bulletIdOfPlayer = bullet_id_of_player;
     }
 };
 

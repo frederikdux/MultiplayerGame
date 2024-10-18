@@ -11,6 +11,7 @@
 #include <ostream>
 #include <stdexcept>
 #include <vector>
+#include <nlohmann/json.hpp>
 
 #include "Bullet.h"
 #include "EnemyInformation.h"
@@ -28,6 +29,9 @@ private:
     sf::Vector2f playerPosition;
     sf::Vector2f playerVelocity;
     float playerRotation;
+    int playerHealth;
+    bool respawnRequested;
+    int nextBulletId = 0;
 public:
     GameInformation();
 
@@ -201,13 +205,25 @@ public:
         return bullets;
     }
 
-    void removeBulletByAddress(Bullet* bulletAddr) {
+    void removeBulletByAddress(Bullet& bulletAddr) {
+        std::lock_guard<std::mutex> lock(bullet_mutex);
         for (auto it = bullets.begin(); it != bullets.end(); ++it) {
-            if (&(*it) == bulletAddr) {  // Vergleich der Speicheradresse
+            if (bulletAddr.getPosition() == it->getPosition() && bulletAddr.getVelocity() == it->getVelocity()) {  // Vergleich der Speicheradresse
                 bullets.erase(it);
                 return;
             }
         }
+        throw std::runtime_error("removeBulletByAddress: No bullet with address ...");
+    }
+    void removeBullet(int playerId, int bulletId) {
+        std::lock_guard<std::mutex> lock(bullet_mutex);
+        for (auto it = bullets.begin(); it != bullets.end(); ++it) {
+            if (it->getPlayerId() == playerId && it->getBulletIdOfPlayer() == bulletId) {  // Vergleich der Speicheradresse
+                bullets.erase(it);
+                return;
+            }
+        }
+        throw std::runtime_error("removeBulletByAddress: No bullet with playerId: " + std::to_string(playerId) + " and bulletId: " + std::to_string(bulletId));
     }
 
     sf::Vector2f getPlayerPosition() {
@@ -258,6 +274,26 @@ public:
         playerRotation += rotation;
     }
 
+    void setPlayerHealth(int health) {
+        playerHealth = health;
+    }
+
+    int getPlayerHealth() const {
+        return playerHealth;
+    }
+
+    bool getRespawnRequested() const {
+        return respawnRequested;
+    }
+
+    void setRespawnRequested(bool requested) {
+        respawnRequested = requested;
+    }
+
+    [[nodiscard]] int getNextBulletId() {
+        nextBulletId++;
+        return nextBulletId-1;
+    }
 };
 
 

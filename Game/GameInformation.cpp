@@ -5,4 +5,5 @@
 #include "GameInformation.h"
 
 GameInformation::GameInformation() {
+    respawnRequested = false;
 }

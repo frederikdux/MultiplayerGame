@@ -23,6 +23,8 @@ public:
           name(name) {
     }
 
+    ServerData(){};
+
     //getters
     [[nodiscard]] int getId() const {
         return id;

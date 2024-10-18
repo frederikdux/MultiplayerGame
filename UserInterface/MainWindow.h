@@ -2,22 +2,26 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
-QT_BEGIN_NAMESPACE
-namespace Ui {
-    class MainWindow;
-}
-QT_END_NAMESPACE
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QTableWidget>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    explicit MainWindow(QWidget *parent = nullptr);
+
+    private slots:
+        void fetchServerList();
+    void onServerListReceived(QNetworkReply* reply);
 
 private:
-    Ui::MainWindow *ui;
+    QTableWidget *tableWidget;
+    QNetworkAccessManager *networkManager;
 };
+
 #endif // MAINWINDOW_H

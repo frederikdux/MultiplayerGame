@@ -13,10 +13,12 @@
 #include <unistd.h>
 #include "../Game/GameInformation.h"
 #include "../Game/EnemyInformation.h"
+#include "../Game/MessageType.h"
 
 Server* Server::serverInstance = nullptr;
 
-Server::Server(unsigned short tcp_port, unsigned short udp_port, GameInformation& gameInformation) : gameInformation(gameInformation){
+Server::Server(unsigned short tcp_port, unsigned short udp_port, GameInformation& gameInformation, MapData &mapData) : gameInformation(gameInformation), mapData(mapData){
+    registerSignalHandlers();
     serverInstance = this;
     port = tcp_port;
     //Output frage nach name des servers und danach input für den namen
@@ -43,7 +45,7 @@ size_t WriteCallback(void* contents, size_t size, size_t nmemb, void* userp) {
 
 void Server::runTcpClient() {
     // Verbindung zum übergeordneten Server herstellen
-    sf::Socket::Status status = tcpClientSocket.connect("localhost", 50123);
+    sf::Socket::Status status = tcpClientSocket.connect("localhost", 50123); //185.117.249.22
     if (status != sf::Socket::Done)
     {
         std::cerr << "Error connecting to the DistributionServer" << std::endl;
@@ -186,7 +188,7 @@ void Server::handleClient(ClientInfo* clientInfo) {
 
     broadcastNewPlayerJoined(clientInfo);
 
-    std::string setIdMessage = "0002 -- " + std::to_string(clientInfo->getId()) + "|";
+    std::string setIdMessage = messageTypeToString(MessageType::Id) + " -- " + std::to_string(clientInfo->getId()) + "|";
     clientInfo->getSocket()->send(setIdMessage.c_str(), setIdMessage.size());
 
     sendGameInformation(clientInfo);
@@ -200,6 +202,7 @@ void Server::handleClient(ClientInfo* clientInfo) {
         } else if (status == sf::Socket::Disconnected) {
             handleOutput("Client disconnected: id=" + std::to_string(clientInfo->getId()) + " " + clientInfo->getName());
             gameInformation.removeEnemy(clientInfo->getId());
+            std::lock_guard<std::mutex> lock(recentUpdatesMutex);
             recentUpdates.erase(clientInfo->getId());
             broadcastPlayerLeft(clientInfo);
             removeClient(clientInfo);
@@ -217,7 +220,9 @@ void Server::broadcastMessage(const std::string& message, ClientInfo* sender) {
             }
         }
     }
+    std::cout << "Sent message to clients: " << message << std::endl;
 }
+
 
 void Server::removeClient(ClientInfo* clientInfo) {
     std::unique_lock<std::mutex> lock(clients_mutex);
@@ -234,14 +239,20 @@ void Server::handleMessage(const std::string& socketMessage, ClientInfo* clientI
         handleOutput("Error: Invalid message format");
         return;
     }
+
     int endOfMessageType = socketMessage.find(" -- ");
-    std::string type = socketMessage.substr(0, endOfMessageType);
-    int endOfMessage = socketMessage.find("|");
+    //Rest der Message wird in neuen String verpackt
+    int endOfMessage = socketMessage.find('|');
+    std::string type = subString(socketMessage, 0, endOfMessageType);
+    MessageType messageType = stringToMessageType(type);
+    std::cout << "Type received: " << type << std::endl;
+
     std::string message = subString(socketMessage, endOfMessageType + 4, endOfMessage);
 
-    if(type == "0000") {
+
+    if(messageType == MessageType::SendName) {
         clientInfo->setName(message); // Setze den Namen des Clients
-        broadcastMessage("0006 -- id=" + std::to_string(clientInfo->getId()) + ";name=" + clientInfo->getName() + ";|", clientInfo);
+        broadcastMessage(messageTypeToString(MessageType::UpdateEnemyName) + " -- id=" + std::to_string(clientInfo->getId()) + ";name=" + clientInfo->getName() + ";|", clientInfo);
         EnemyInformation enemy = gameInformation.getEnemy(clientInfo->getId());
         enemy.setName(clientInfo->getName());
         try {
@@ -251,21 +262,26 @@ void Server::handleMessage(const std::string& socketMessage, ClientInfo* clientI
         }
         handleOutput("Client set name to: " + clientInfo->getName());
     }
-    else if(type == "0001") {
-        broadcastMessage("0001 -- " + clientInfo->getName() + ": " + message, clientInfo);
+    else if(messageType == MessageType::Message) {
+        broadcastMessage(messageTypeToString(MessageType::Message) + " -- " + clientInfo->getName() + ": " + message, clientInfo);
         handleOutput(clientInfo->getName() + " send Message: " + message);
     }
-    else if(type == "1000") {
+    else if(messageType == MessageType::RequestGameUpdate) {
         sendGameInformation(clientInfo);
     }
-    else if(type == "0201") {
+    else if(messageType == MessageType::NewBullet) {
         broadcastMessage(socketMessage, nullptr);
         std::string position = extractParameter(socketMessage, "position");
         sf::Vector2f pos = sf::Vector2f(std::stof(subString(position, 0, position.find(','))), std::stof(subString(position, position.find(',') + 1, position.length())));
         std::string velocity = extractParameter(socketMessage, "velocity");
         sf::Vector2f vel = sf::Vector2f(std::stof(subString(velocity, 0, velocity.find(','))), std::stof(subString(velocity, velocity.find(',') + 1, velocity.length())));
-
-        gameInformation.addBullet(Bullet(pos, vel, 0, 0));
+        int bulletId = stoi(extractParameter(socketMessage, "bulletId"));
+        gameInformation.addBullet(Bullet(clientInfo->getId(), bulletId, pos, vel, 0, 0));
+    }
+    else if(messageType == MessageType::RequestRespawn) {
+        int id = stoi(extractParameter(message, "id"));
+        sf::Vector2f position = calculateRandomSpawnpoint(clientInfo);
+        broadcastMessage(messageTypeToString(MessageType::EnemyRespawned) + " -- id="+ std::to_string(id) + ";position=" + std::to_string(position.x) + "," + std::to_string(position.y) + ";|", nullptr);
     }
     else {
         handleError("Error: Unknown message type");
@@ -282,7 +298,7 @@ void Server::setupENetServer(unsigned short udp_port) {
     address.host = ENET_HOST_ANY;
     address.port = udp_port;
 
-    enet_server = enet_host_create(&address, 32, 1, 0, 0);
+    enet_server = enet_host_create(&address, 64, 2, 0, 0);
     if (!enet_server) {
         handleError("An error occurred while trying to create an ENet server host.");
         exit(EXIT_FAILURE);
@@ -294,23 +310,37 @@ void Server::setupENetServer(unsigned short udp_port) {
 void Server::processENetEvents() {
     while(true) {
         ENetEvent event;
-        while (enet_host_service(enet_server, &event, 10) > 0) {
+        while (enet_host_service(enet_server, &event, 1000) > 0) {
             switch (event.type) {
                 case ENET_EVENT_TYPE_RECEIVE: {
+                    //std::cout << "Received packet from ENet client." << std::endl;
                     std::string receivedData(reinterpret_cast<char*>(event.packet->data), event.packet->dataLength);
 
-                    // Extract position and player ID from the message
-                    int playerId = std::stoi(extractParameter(receivedData, "id"));
-                    //std::cout << "Received position update from player " << playerId << ": "<< receivedData << std::endl;
+                    try {
+                        int playerId = std::stoi(extractParameter(receivedData, "id"));
+                        //std::cout << "Received position update from player " << playerId << ": " << receivedData << std::endl;
 
-                    // Store the player's position
-                    recentUpdates[playerId] = receivedData;
-
-                    enet_packet_destroy(event.packet);
+                        std::lock_guard<std::mutex> lock(recentUpdatesMutex);
+                        recentUpdates[playerId] = receivedData;
+                    } catch (const std::invalid_argument& e) {
+                        // Falls die ID kein gültiger Integer ist
+                        std::cerr << "Invalid ID received: " << extractParameter(receivedData, "id") << std::endl;
+                    } catch (const std::out_of_range& e) {
+                        // Falls die ID außerhalb des gültigen Integer-Bereichs liegt
+                        std::cerr << "ID out of range: " << extractParameter(receivedData, "id") << std::endl;
+                    }
                     break;
                 }
-
+                case ENET_EVENT_TYPE_DISCONNECT: {
+                    handleOutput("Client disconnected from ENet server.");
+                    break;
+                }
+                case ENET_EVENT_TYPE_CONNECT: {
+                    handleOutput("Client connected to ENet server.");
+                    break;
+                }
                 default:
+                    std::cout << "Unknown event type: " << event.type << std::endl;
                     break;
             }
         }
@@ -326,40 +356,50 @@ void Server::sendBatchedPositionUpdates() {
         auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - lastTick);
         tickDuration = std::chrono::milliseconds((1000/tickrate));
         if (elapsed >= tickDuration) {
-            for (const auto& [id, message] : recentUpdates) {
+            //std::cout << "sending info of " << recentUpdates.size() << " players" << std::endl;
+            std::unordered_map<int, std::string> recentUpdatesCopy;
+            {
+                std::lock_guard<std::mutex> lock(recentUpdatesMutex);
+                recentUpdatesCopy = recentUpdates;
+            }
+            for (const auto& [id, message] : recentUpdatesCopy) {
                 batchMessage += message.c_str();
                 int endOfMessageType = message.find(" -- ");
-                std::string type = message.substr(0, endOfMessageType);
+                std::string type = subString(message, 0, endOfMessageType);
+                MessageType messageType = stringToMessageType(type);
 
-                if(type == "0106") {
+                if(messageType == MessageType::UpdateEnemyPosVelRot) {
                     std::string id = extractParameter(message, "id");
                     std::string position = extractParameter(message, "position");
+                    //std::cout << id << ", ";
                     sf::Vector2f positionVector = sf::Vector2f(std::stof(position.substr(0, position.find(','))), std::stof(position.substr(position.find(',') + 1)));
                     try {
-                        try {
-                            gameInformation.updateEnemyData(std::stoi(id), positionVector, sf::Vector2f(0,0), 0);
-                        } catch (...) {
-                            std::cout << "Error in acceptClients" << std::endl;
-                        }
-                    } catch(const std::runtime_error& e) {
+                        gameInformation.updateEnemyData(std::stoi(id), positionVector, sf::Vector2f(0,0), 0);
+                    } catch(const std::exception& e) {
                         std::cerr <<"Fehler aufgetreten:" << e.what() << std::endl;
                     }
                 }
             }
+            //std::cout << std::endl;
             if(batchMessage.empty()) {
                 continue;
             }
 
+            //std::cout << "Sending batch message to ENet client." << std::endl;
             for (size_t i = 0; i < enet_server->peerCount; ++i) {
                 ENetPeer* currentPeer = &enet_server->peers[i];
                 if (currentPeer->state == ENET_PEER_STATE_CONNECTED) {
-                    ENetPacket* packet = enet_packet_create(batchMessage.c_str(), batchMessage.length() + 1, ENET_PACKET_FLAG_RELIABLE);
+                    ENetPacket* packet = enet_packet_create(batchMessage.c_str(), batchMessage.length() + 1, ENET_PACKET_FLAG_UNSEQUENCED);
                     enet_peer_send(currentPeer, 0, packet);
+                }
+                else if(currentPeer->state != 0){
+                    std::cout << "Peer state: " << currentPeer->state << std::endl;
                 }
             }
 
             lastTick = now;
             batchMessage.clear();
+            std::lock_guard<std::mutex> lock(recentUpdatesMutex);
             recentUpdates.clear();
         }
 
@@ -372,7 +412,7 @@ void Server::sendGameInformation(ClientInfo *clientInfo) {
     std::unique_lock<std::mutex> lock(clients_mutex);
     for (auto& client : clients) {
         if(client->getId() != clientInfo->getId() && !client->getName().empty()) {
-            std::string message = "0003 -- id=" + std::to_string(client->getId()) + ";name=" + client->getName() + ";|" ;
+            std::string message = messageTypeToString(MessageType::NewEnemy) + " -- id=" + std::to_string(client->getId()) + ";name=" + client->getName() + ";|" ;
             clientInfo->getSocket()->send(message.c_str(), message.size());
         }
     }
@@ -382,7 +422,7 @@ void Server::broadcastNewPlayerJoined(ClientInfo *newPlayer) {
     std::unique_lock<std::mutex> lock(clients_mutex);
     for (auto& client : clients) {
         if(client->getId() != newPlayer->getId() && !client->getName().empty()) {
-            std::string message = "0003 -- id=" + std::to_string(newPlayer->getId()) + ";name= " + newPlayer->getName() + ";|";
+            std::string message = messageTypeToString(MessageType::NewEnemy) + " -- id=" + std::to_string(newPlayer->getId()) + ";name= " + newPlayer->getName() + ";|";
             client->getSocket()->send(message.c_str(), message.size());
         }
     }
@@ -392,7 +432,7 @@ void Server::broadcastPlayerLeft(ClientInfo *player) {
     std::unique_lock<std::mutex> lock(clients_mutex);
     for (auto& client : clients) {
         if(client->getId() != player->getId() && !client->getName().empty()) {
-            std::string message = "0005 -- id=" + std::to_string(player->getId()) +";|";
+            std::string message = messageTypeToString(MessageType::RemoveEnemy) + " -- id=" + std::to_string(player->getId()) +";|";
             client->getSocket()->send(message.c_str(), message.size());
         }
     }
@@ -402,10 +442,15 @@ void Server::broadcastPlayerDied(EnemyInformation *enemy) {
     std::unique_lock<std::mutex> lock(clients_mutex);
     for (auto& client : clients) {
         if(!client->getName().empty()) {
-            std::string message = "0109 -- id=" + std::to_string(enemy->getId()) +";|";
+            std::string message = messageTypeToString(MessageType::EnemyDied) + " -- id=" + std::to_string(enemy->getId()) +";|";
             client->getSocket()->send(message.c_str(), message.size());
         }
     }
+}
+
+void Server::sendToPlayer(const std::string &message, ClientInfo *player) {
+    std::unique_lock<std::mutex> lock(clients_mutex);
+    player->getSocket()->send(message.c_str(), message.size());
 }
 
 std::string Server::subString(std::string str, int start, int end) {
@@ -504,26 +549,57 @@ void Server::checkForHits() {
     sf::Clock clock;
     while(true) {
         try {
-            gameInformation.updateBulletPositions(clock.restart().asSeconds(), MapData());
+            gameInformation.updateBulletPositions(clock.restart().asSeconds(), mapData);
 
-            std::vector<Bullet> bullets = gameInformation.getBullets();
-            std::vector<EnemyInformation> enemies = gameInformation.getEnemies();
-            for (Bullet bullet : bullets) {
-                for (EnemyInformation enemy : enemies) {
+            std::vector<Bullet> toBeDeleted;
+
+            for (auto & bullet : gameInformation.getBullets()) {
+                for (auto & enemy : gameInformation.getEnemies()) {
                     double xDiff = bullet.getPosition().x - enemy.getPosition().x;
                     double yDiff = bullet.getPosition().y - enemy.getPosition().y;
                     double distance = std::sqrt(xDiff * xDiff + yDiff * yDiff);
 
-                    if (distance < 30) {
+                    if (distance < 24) {
                         std::cout << "Player " << enemy.getName() <<" got hit!" << std::endl;
                         broadcastPlayerDied(&enemy);
+                        std::cout << "Enemy with id " << enemy.getId() << " got hit!" << std::endl;
                         enemy.setPosition(sf::Vector2f(-1000, -1000));
+                        std::cout << "Enemy with id " << enemy.getId() << " set to -1000, -1000!" << std::endl;
                         enemy.setHealth(0);
-                        recentUpdates[enemy.getId()].erase();
+                        std::cout << "Enemy with id " << enemy.getId() << " health set to 0!" << std::endl;
+                        std::lock_guard<std::mutex> lock(recentUpdatesMutex);
+                        if(recentUpdates.find(enemy.getId()) != recentUpdates.end()) {
+                            recentUpdates.erase(enemy.getId());
+                            std::cout << "Enemy with id " << enemy.getId() << " erased!" << std::endl;
+                        }
+                        std::cout << "Enemy with id " << enemy.getId() << " removed from recentUpdates!" << std::endl;
                         gameInformation.updateEnemy(enemy);
-                        gameInformation.removeBulletByAddress(&bullet);
+                        std::cout << "Enemy with id " << enemy.getId() << " updated!" << std::endl;
+
+                        toBeDeleted.push_back(bullet);
                     }
                 }
+            }
+
+            for(auto bullet1 : gameInformation.getBullets()) {
+                for(auto bullet2 : gameInformation.getBullets()) {
+                    if(bullet1.getPlayerId() != bullet2.getPlayerId()) {
+                        double xDiff = bullet1.getPosition().x - bullet2.getPosition().x;
+                        double yDiff = bullet1.getPosition().y - bullet2.getPosition().y;
+                        double distance = std::sqrt(xDiff * xDiff + yDiff * yDiff);
+
+                        if (distance < 15) {
+                            toBeDeleted.push_back(bullet1);
+                            toBeDeleted.push_back(bullet2);
+                        }
+                    }
+                }
+            }
+
+            for(auto bullet : toBeDeleted) {
+                gameInformation.removeBullet(bullet.getPlayerId(), bullet.getBulletIdOfPlayer());
+                broadcastMessage(messageTypeToString(MessageType::RemoveBullet) + " -- playerId=" + std::to_string(bullet.getPlayerId()) + ";bulletId=" + std::to_string(bullet.getBulletIdOfPlayer()) + ";|", nullptr);
+                std::cout << "Bullet removed!" << std::endl;
             }
         } catch (std::exception& e) {
             std::cout << "Error: " << e.what() << std::endl;
@@ -531,6 +607,11 @@ void Server::checkForHits() {
     }
 }
 
+sf::Vector2f Server::calculateRandomSpawnpoint(ClientInfo *clientInfo) {
+    int random = rand() % mapData.getSpawnpoints().size();
+    sf::Vector2f spawnLocation = mapData.getSpawnpoints()[random].getPosition();
+    return spawnLocation;
+}
 
 //Linux
 /*
@@ -559,3 +640,16 @@ bool kbhit() {
     return false;
 }
 */
+
+void Server::signalHandler(int signal) {
+    std::cerr << "Error: Signal " << signal << " received." << std::endl;
+    // Hier könntest du die Logik zum Beenden hinzufügen
+    exit(signal);
+}
+
+void Server::
+registerSignalHandlers() {
+    std::signal(SIGSEGV, signalHandler);  // Segmentation fault
+    std::signal(SIGABRT, signalHandler);  // Abort signal from abort()
+    // Weitere Signale hinzufügen, falls nötig
+}

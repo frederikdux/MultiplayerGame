@@ -14,7 +14,7 @@
 
 class Server {
 public:
-    Server(unsigned short tcp_port, unsigned short udp_port, GameInformation& gameInformation);
+    Server(unsigned short tcp_port, unsigned short udp_port, GameInformation& gameInformation, MapData& mapData);
     ~Server();
     void run();
     static void exceptionHandler();
@@ -44,6 +44,8 @@ private:
     void broadcastNewPlayerJoined(ClientInfo* newPlayer);
     void broadcastPlayerLeft(ClientInfo* player);
     void broadcastPlayerDied(EnemyInformation* enemy);
+    void sendToPlayer(const std::string& message, ClientInfo* player);
+    sf::Vector2f calculateRandomSpawnpoint(ClientInfo* clientInfo);
     void checkForHits();
     void removeClient(ClientInfo* clientInfo);
     void handleMessage(const std::string& message, ClientInfo* clientInfo);
@@ -60,6 +62,7 @@ private:
     void handleOutput(const std::string& message);
     void handleError(const std::string& message);
     void handleInput();
+    void registerSignalHandlers();
     sf::TcpListener listener;
     std::vector<std::unique_ptr<ClientInfo>> clients; // Speicherung von ClientInfo-Objekten
     std::mutex clients_mutex; // Mutex zum Schutz des Clients-Vektors
@@ -70,10 +73,12 @@ private:
     std::string serverName;
     int serverId = -1;
     static Server *serverInstance;
+    std::mutex recentUpdatesMutex;
     std::unordered_map<int, std::string> recentUpdates;
     boolean outputAllowed = true;
     boolean consoleButtonPressed = false;
     int tickrate = 40;
     sf::TcpSocket tcpClientSocket;
     GameInformation& gameInformation;
+    MapData& mapData;
 };

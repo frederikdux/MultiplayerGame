@@ -1,5 +1,9 @@
-# client/CMakeLists.txt
-add_executable(Client main.cpp Client.cpp
+project(Client VERSION 1.0 LANGUAGES CXX)
+
+# Add executable
+add_executable(Client
+        main.cpp
+        Client.cpp
         ../Game/GameInformation.cpp
         ../Game/GameInformation.h
         ../Game/EnemyInformation.cpp
@@ -10,16 +14,20 @@ add_executable(Client main.cpp Client.cpp
         ServerData.h
         ../Game/MapData.h
         ../Game/BasicWall.h
+        ../Game/Spawnpoint.h
+        ../Game/MessageType.h
 )
 
-# libcurl suchen und einbinden
-find_package(CURL REQUIRED)
-if(CURL_FOUND)
-    include_directories(${CURL_INCLUDE_DIR})
-else()
-    message(FATAL_ERROR "libcurl wurde nicht gefunden!")
-endif()
+# Link Libraries
+target_link_libraries(Client
+        sfml-graphics
+        sfml-system
+        sfml-network
+        ${ENET_LIBRARY}
+        CURL::libcurl
+        nlohmann_json::nlohmann_json
+        ZLIB::ZLIB
+)
 
-target_link_libraries(Client sfml-graphics sfml-system sfml-network ${ENET_LIBRARY} ${CURL_LIBRARIES} nlohmann_json::nlohmann_json ZLIB::ZLIB)
-
-
+# Include directories for the target
+target_include_directories(Client PRIVATE ${CURL_INCLUDE_DIRS})

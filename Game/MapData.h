@@ -7,11 +7,13 @@
 #include <vector>
 
 #include "BasicWall.h"
+#include "Spawnpoint.h"
 
 
 class MapData {
 private:
     std::vector<BasicWall> basicWalls;
+    std::vector<Spawnpoint> spawnpoints;
 
 public:
     MapData(){}
@@ -22,6 +24,14 @@ public:
 
     [[nodiscard]] std::vector<BasicWall> getBasicWalls() const {
         return basicWalls;
+    }
+
+    void addSpawnpoint(const Spawnpoint& spawnpoint) {
+        spawnpoints.push_back(spawnpoint);
+    }
+
+    [[nodiscard]] std::vector<Spawnpoint> getSpawnpoints() const {
+        return spawnpoints;
     }
 };
 

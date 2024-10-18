@@ -1,25 +1,39 @@
-# server/CMakeLists.txt
-add_executable(Server main.cpp Server.cpp
+project(Server VERSION 1.0 LANGUAGES CXX)
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+
+# Add executable
+add_executable(Server
+        main.cpp
+        Server.cpp
         ../Game/GameInformation.cpp
         ../Game/GameInformation.h
         ../Game/EnemyInformation.cpp
         ../Game/EnemyInformation.h
         ../Game/Bullet.cpp
         ../Game/Bullet.h
-        ../Game/MapData.h
-        ../Game/BasicWall.h
         ClientInfo.cpp
         ClientInfo.h
         MessageHandler.cpp
-        MessageHandler.h)
+        MessageHandler.h
+        ../Game/MapData.h
+        ../Game/BasicWall.h
+        ../Game/Spawnpoint.h
+        ../Game/MessageType.h
+)
 
+# Link Libraries
+target_link_libraries(Server
+        sfml-system
+        sfml-network
+        ${ENET_LIBRARY}
+        CURL::libcurl
+        nlohmann_json::nlohmann_json
+)
 
-# libcurl suchen und einbinden
-find_package(CURL REQUIRED)
-if(CURL_FOUND)
-    include_directories(${CURL_INCLUDE_DIR})
-else()
-    message(FATAL_ERROR "libcurl wurde nicht gefunden!")
-endif()
+# Include directories for the target
+target_include_directories(Server PRIVATE ${CURL_INCLUDE_DIRS})
 
-target_link_libraries(Server PRIVATE sfml-system sfml-network ${ENET_LIBRARY} ${CURL_LIBRARIES} nlohmann_json::nlohmann_json)
+set_target_properties(Client PROPERTIES
+        COMPILE_FLAGS "-g -O0"  # Optional, um sicherzustellen, dass Debug-Flags verwendet werden
+)

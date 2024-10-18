@@ -5,8 +5,11 @@
 #include <iostream>
 #include <nlohmann/json.hpp>
 #include <fstream>
+#include <thread>
+
 #include "../Game/GameInformation.h"
 #include "../Game/MapData.h"
+#include "../Game/MessageType.h"
 
 #define PI 3.14159265359f
 
@@ -18,8 +21,35 @@ sf::Vector2f movePlayerUntilCollision(sf::Vector2f& currentPosition, sf::Vector2
 void resolveCollision(GameInformation& gameInformation, const sf::RectangleShape& wall);
 void updatePlayer(GameInformation &gameInformation, float deltaTime, const std::vector<BasicWall>& walls);
 
+void networkFunctions(GameInformation &gameInformation, MapData &mapData, Client &client) {
+    Clock clock;
+    float timeCounter = 0;
+    float deltaTime = 0;
+    while(true) {
+        try {
+            deltaTime = clock.restart().asSeconds();
+
+            timeCounter += deltaTime;
+            if(timeCounter >= 0.0125) {
+                timeCounter = 0;
+                client.sendPlayerUpdate(gameInformation.getPlayerPosition().x, gameInformation.getPlayerPosition().y, gameInformation.getPlayerVelocity().x, gameInformation.getPlayerVelocity().y, gameInformation.getPlayerRotation());
+            }
+
+            gameInformation.updateEnemyPositions(deltaTime);
+            gameInformation.updateBulletPositions(deltaTime, mapData);
+            updatePlayer(gameInformation, deltaTime, mapData.getBasicWalls());
+        } catch (const std::exception& e) {
+            std::cout << "Error in networkFunctions: " << e.what() << std::endl;
+        }
+    }
+}
+
 int main() {
     GameInformation gameInformation;
+    gameInformation.setPlayerHealth(100);
+    gameInformation.setPlayerPosition(Vector2f(100, 100));
+    gameInformation.setPlayerRotation(0);
+    gameInformation.setPlayerVelocity(Vector2f(0, 0));
     MapData mapData = MapData();
 
     boolean focus = true;
@@ -32,7 +62,7 @@ int main() {
     loadMap("TestMap.txt", mapData);
 
     RenderWindow window(VideoMode(800, 800), "SFML", Style::Titlebar | Style::Close);
-    //window.setFramerateLimit(120);
+    window.setFramerateLimit(100);
 
     RectangleShape shape(Vector2f(20, 20));
     shape.setFillColor(Color::Red);
@@ -63,173 +93,165 @@ int main() {
     nameText.setCharacterSize(18);
     nameText.setFillColor(Color::White);
 
+    Text respawnText;
+    respawnText.setFont(font);
+    respawnText.setCharacterSize(25);
+    respawnText.setFillColor(Color::Black);
+    respawnText.setString("Press R to respawn");
+    respawnText.setOrigin(respawnText.getLocalBounds().width / 2, respawnText.getLocalBounds().height / 2);
+    respawnText.setPosition(window.getSize().x / 2, 18);
+
     Clock clock;
     int timeCounter=0;
 
     boolean positionUpdated = false;
 
-    gameInformation.setPlayerPosition(Vector2f(100, 100));
-    gameInformation.setPlayerRotation(0);
-    gameInformation.setPlayerVelocity(Vector2f(0, 0));
+    std::thread networkThread(networkFunctions, std::ref(gameInformation), std::ref(mapData), std::ref(client));
+    networkThread.detach();
 
-    while (window.isOpen())
-    {
-        if(client.getId() != -1) {
-            Event event;
-            while (window.pollEvent(event))
-            {
-                if (event.type == Event::Closed) {
-                    window.close();
-                }
-                if(event.type == Event::GainedFocus) {
-                    focus = true;
-                }
-                if(event.type == Event::LostFocus) {
-                    focus = false;
-                }
-            }
-
-            float deltaTime = clock.restart().asSeconds();
-
-            if(focus) {
-                if(Keyboard::isKeyPressed(Keyboard::W)) {
-                    float angleRad = gameInformation.getPlayerRotation() * PI / 180;
-                    Vector2f targetVelocity = Vector2f(cos(angleRad) * maxSpeed, sin(angleRad) * maxSpeed);
-                    Vector2f velocity = moveTowards(gameInformation.getPlayerVelocity(), targetVelocity, deltaTime, acceleration, 0.1f);
-                    gameInformation.setPlayerVelocity(velocity);
-                }
-                if(Keyboard::isKeyPressed(Keyboard::S)) {
-                    float angleRad = gameInformation.getPlayerRotation() * PI / 180;
-                    Vector2f targetVelocity = Vector2f(cos(angleRad) * -maxSpeed, sin(angleRad) * -maxSpeed);
-                    Vector2f velocity = moveTowards(gameInformation.getPlayerVelocity(), targetVelocity, deltaTime, acceleration, 0.1f);
-                    gameInformation.setPlayerVelocity(velocity);
-                }
-                if(Keyboard::isKeyPressed(Keyboard::LShift)) {
-                    acceleration = 400;
-                    maxSpeed = 350;
-                } else {
-                    acceleration = 150;
-                    maxSpeed = 200;
-                }
-                if(Keyboard::isKeyPressed(Keyboard::A)) {
-                    gameInformation.increasePlayerRotation(-200 * deltaTime);
-                }
-                if(Keyboard::isKeyPressed(Keyboard::D)) {
-                    gameInformation.increasePlayerRotation(200 * deltaTime);
-                }
-                if(Keyboard::isKeyPressed(Keyboard::Subtract)) {
-                    ShowWindow(GetConsoleWindow(), SW_HIDE);
-                }
-                if(Keyboard::isKeyPressed(Keyboard::Add)) {
-                    ShowWindow(GetConsoleWindow(), SW_SHOW);
-                }
-                if(Keyboard::isKeyPressed(Keyboard::V)) {
-                    if(!velocityPressed) {
-                        std::cout << "Velocity: " << withVelocity << std::endl;
-                        withVelocity = !withVelocity;
-                        velocityPressed = true;
+    try {
+        while (window.isOpen())
+        {
+            if(client.getId() != -1) {
+                Event event;
+                while (window.pollEvent(event))
+                {
+                    if (event.type == Event::Closed) {
+                        window.close();
                     }
-                } else if(!Keyboard::isKeyPressed(Keyboard::V)){
-                    velocityPressed = false;
-                }
-                if(Keyboard::isKeyPressed(Keyboard::Space) && !shotBullet) {
-                    float angleRad = gameInformation.getPlayerRotation() * PI / 180;
-                    client.sendBulletShot(gameInformation.getPlayerPosition().x + cos(angleRad) * 50, gameInformation.getPlayerPosition().y + sin(angleRad) * 50, cos(angleRad) * 600, sin(angleRad) * 600);
-                    shotBullet = true;
-                } else if(!Keyboard::isKeyPressed(Keyboard::Space)){
-                    shotBullet = false;
-                }
-            }
-            if(!Keyboard::isKeyPressed(Keyboard::W) && !Keyboard::isKeyPressed(Keyboard::S) || !focus) {
-                gameInformation.setPlayerVelocity(moveTowards(gameInformation.getPlayerVelocity(), Vector2f(0, 0), deltaTime, 250, 1));
-            }
-
-            //playerVelocity = playerPosition - oldPlayerPosition;
-            //oldPlayerPosition = playerPosition;
-            //playerVelocity = playerVelocity / deltaTime;
-            //std::cout << "Player velocity: " << playerVelocity.x << " " << playerVelocity.y << std::endl;
-            try {
-                window.clear();
-
-                //draw all basicwalls in mapdata
-                for(BasicWall basicWall : mapData.getBasicWalls()) {
-                    basicWallRec.setPosition(basicWall.getPosition());
-                    window.draw(basicWallRec);
-                }
-
-                shape.setFillColor(Color::Green);
-                shape.setPosition(gameInformation.getPlayerPosition());
-                shape.setRotation(gameInformation.getPlayerRotation());
-                window.draw(shape);
-
-                line[0].position = Vector2f(gameInformation.getPlayerPosition().x, gameInformation.getPlayerPosition().y);
-                float angleRad = gameInformation.getPlayerRotation() * PI / 180;
-                float lineLength = 30;
-                line[1].position = Vector2f(line[0].position.x + cos(angleRad) * lineLength, line[0].position.y + sin(angleRad) * lineLength);
-                window.draw(line, 2, Lines);
-
-                timeCounter += deltaTime;
-                if(timeCounter <= 0.0125 && withVelocity) {
-                    timeCounter = 0;
-                    client.sendPlayerUpdate(gameInformation.getPlayerPosition().x, gameInformation.getPlayerPosition().y, gameInformation.getPlayerVelocity().x, gameInformation.getPlayerVelocity().y, gameInformation.getPlayerRotation());
-                } else if(timeCounter <= 0.0125){
-                    timeCounter = 0;
-                    client.sendPlayerUpdate(gameInformation.getPlayerPosition().x, gameInformation.getPlayerPosition().y, 0, 0, gameInformation.getPlayerRotation());
-                }
-                window.setTitle(client.getSocket().getRemoteAddress().toString() + " - " + client.getName() + " - health: " + std::to_string(client.getHealth()) +" id:" + std::to_string(client.getId()) + " FPS: " + std::to_string((int)(1.0f/deltaTime)));
-
-                for (EnemyInformation enemy : gameInformation.getEnemies()) {
-                    if(enemy.getHealth() != 0) {
-                        shape.setFillColor(Color::Red);
-                        shape.setPosition(enemy.getPosition());
-                        shape.setRotation(enemy.getRotation());
-                        nameText.setString(enemy.getName());
-                        nameText.setOrigin(nameText.getLocalBounds().width / 2, nameText.getLocalBounds().height / 2);
-                        nameText.setPosition(enemy.getPosition().x, enemy.getPosition().y - 20);
-                        window.draw(shape);
-
-                        line[0].position = Vector2f(enemy.getPosition().x, enemy.getPosition().y);
-                        float angleRad = enemy.getRotation() * PI / 180;
-                        float lineLength = 30;
-                        line[1].position = Vector2f(line[0].position.x + cos(angleRad) * lineLength, line[0].position.y + sin(angleRad) * lineLength);
-                        window.draw(line, 2, Lines);
-
-                        window.draw(nameText);
+                    if(event.type == Event::GainedFocus) {
+                        focus = true;
+                    }
+                    if(event.type == Event::LostFocus) {
+                        focus = false;
                     }
                 }
 
-                for (Bullet bullet : gameInformation.getBullets()) {
-                    circle.setPosition(bullet.getPosition());
-                    window.draw(circle);
-                }
+                float deltaTime = clock.restart().asSeconds();
 
-                gameInformation.updateEnemyPositions(deltaTime);
-                gameInformation.updateBulletPositions(deltaTime, mapData);
-
-
-                updatePlayer(gameInformation, deltaTime, mapData.getBasicWalls());
-                /*for(BasicWall basicWall : mapData.getBasicWalls()) {
-                    basicWallRec.setPosition(basicWall.getPosition());
-                    playerPositionRec.setPosition(gameInformation.getPlayerPosition() + gameInformation.getPlayerVelocity() * deltaTime);
-                    if(playerPositionRec.getGlobalBounds().intersects(basicWallRec.getGlobalBounds())) {
-                        std::cout << "Collision" << std::endl;
-                        gameInformation.setPlayerPosition(movePlayerUntilCollision(gameInformation.getPlayerPosition(), gameInformation.getPlayerVelocity(), playerPositionRec.getPosition(), basicWallRec.getGlobalBounds()));
-                        positionUpdated = true;
+                if(focus) {
+                    if(Keyboard::isKeyPressed(Keyboard::W)) {
+                        float angleRad = gameInformation.getPlayerRotation() * PI / 180;
+                        Vector2f targetVelocity = Vector2f(cos(angleRad) * maxSpeed, sin(angleRad) * maxSpeed);
+                        Vector2f velocity = moveTowards(gameInformation.getPlayerVelocity(), targetVelocity, deltaTime, acceleration, 0.1f);
+                        gameInformation.setPlayerVelocity(velocity);
+                    }
+                    if(Keyboard::isKeyPressed(Keyboard::S)) {
+                        float angleRad = gameInformation.getPlayerRotation() * PI / 180;
+                        Vector2f targetVelocity = Vector2f(cos(angleRad) * -maxSpeed, sin(angleRad) * -maxSpeed);
+                        Vector2f velocity = moveTowards(gameInformation.getPlayerVelocity(), targetVelocity, deltaTime, acceleration, 0.1f);
+                        gameInformation.setPlayerVelocity(velocity);
+                    }
+                    if(Keyboard::isKeyPressed(Keyboard::LShift)) {
+                        acceleration = 400;
+                        maxSpeed = 350;
+                    } else {
+                        acceleration = 150;
+                        maxSpeed = 200;
+                    }
+                    if(Keyboard::isKeyPressed(Keyboard::A)) {
+                        gameInformation.increasePlayerRotation(-200 * deltaTime);
+                    }
+                    if(Keyboard::isKeyPressed(Keyboard::D)) {
+                        gameInformation.increasePlayerRotation(200 * deltaTime);
+                    }
+                    if(Keyboard::isKeyPressed(Keyboard::Subtract)) {
+                        ShowWindow(GetConsoleWindow(), SW_HIDE);
+                    }
+                    if(Keyboard::isKeyPressed(Keyboard::Add)) {
+                        ShowWindow(GetConsoleWindow(), SW_SHOW);
+                    }
+                    if(Keyboard::isKeyPressed(Keyboard::V)) {
+                        if(!velocityPressed) {
+                            std::cout << "Velocity: " << withVelocity << std::endl;
+                            withVelocity = !withVelocity;
+                            velocityPressed = true;
+                        }
+                    } else if(!Keyboard::isKeyPressed(Keyboard::V)){
+                        velocityPressed = false;
+                    }
+                    if(Keyboard::isKeyPressed(Keyboard::R) && gameInformation.getPlayerHealth() == 0 && !gameInformation.getRespawnRequested()) {
+                        client.sendMessage(messageTypeToString(MessageType::RequestRespawn) + " -- id=" + std::to_string(client.getId()) + ";|");
+                        gameInformation.setRespawnRequested(true);
+                    }
+                    if(Keyboard::isKeyPressed(Keyboard::Space) && !shotBullet) {
+                        float angleRad = gameInformation.getPlayerRotation() * PI / 180;
+                        client.sendBulletShot(client.getId(), gameInformation.getNextBulletId(), gameInformation.getPlayerPosition().x + cos(angleRad) * 30, gameInformation.getPlayerPosition().y + sin(angleRad) * 30, cos(angleRad) * 600, sin(angleRad) * 600);
+                        shotBullet = true;
+                    } else if(!Keyboard::isKeyPressed(Keyboard::Space)) {
+                        shotBullet = false;
                     }
                 }
-                if(!positionUpdated) {
-                    gameInformation.setPlayerPosition(gameInformation.getPlayerPosition() + gameInformation.getPlayerVelocity() * deltaTime);
-                    positionUpdated = false;
-                }*/
+                if(!Keyboard::isKeyPressed(Keyboard::W) && !Keyboard::isKeyPressed(Keyboard::S) || !focus) {
+                    gameInformation.setPlayerVelocity(moveTowards(gameInformation.getPlayerVelocity(), Vector2f(0, 0), deltaTime, 250, 1));
+                }
 
-                window.display();
-            }catch(...) {
-                std::cout << "Error in main" << std::endl;
+                //playerVelocity = playerPosition - oldPlayerPosition;
+                //oldPlayerPosition = playerPosition;
+                //playerVelocity = playerVelocity / deltaTime;
+                //std::cout << "Player velocity: " << playerVelocity.x << " " << playerVelocity.y << std::endl;
+                try {
+                    window.clear();
+
+                    //draw all basicwalls in mapdata
+                    for(BasicWall basicWall : mapData.getBasicWalls()) {
+                        basicWallRec.setPosition(basicWall.getPosition());
+                        window.draw(basicWallRec);
+                    }
+
+                    shape.setFillColor(Color::Green);
+                    shape.setPosition(gameInformation.getPlayerPosition());
+                    shape.setRotation(gameInformation.getPlayerRotation());
+                    window.draw(shape);
+
+                    line[0].position = Vector2f(gameInformation.getPlayerPosition().x, gameInformation.getPlayerPosition().y);
+                    float angleRad = gameInformation.getPlayerRotation() * PI / 180;
+                    float lineLength = 30;
+                    line[1].position = Vector2f(line[0].position.x + cos(angleRad) * lineLength, line[0].position.y + sin(angleRad) * lineLength);
+                    window.draw(line, 2, Lines);
+
+                    window.setTitle(client.getSocket().getRemoteAddress().toString() + " - " + client.getName() + " - health: " + std::to_string(gameInformation.getPlayerHealth()) +" id:" + std::to_string(client.getId()) + " FPS: " + std::to_string((int)(1.0f/deltaTime)));
+
+                    for (EnemyInformation enemy : gameInformation.getEnemies()) {
+                        if(true) {
+                            shape.setFillColor(Color::Red);
+                            shape.setPosition(enemy.getPosition());
+                            shape.setRotation(enemy.getRotation());
+                            nameText.setString(enemy.getName());
+                            nameText.setOrigin(nameText.getLocalBounds().width / 2, nameText.getLocalBounds().height / 2);
+                            nameText.setPosition(enemy.getPosition().x, enemy.getPosition().y - 20);
+                            window.draw(shape);
+
+                            line[0].position = Vector2f(enemy.getPosition().x, enemy.getPosition().y);
+                            float angleRad = enemy.getRotation() * PI / 180;
+                            float lineLength = 30;
+                            line[1].position = Vector2f(line[0].position.x + cos(angleRad) * lineLength, line[0].position.y + sin(angleRad) * lineLength);
+                            window.draw(line, 2, Lines);
+
+                            window.draw(nameText);
+                        }
+                    }
+
+                    for (Bullet bullet : gameInformation.getBullets()) {
+                        circle.setPosition(bullet.getPosition());
+                        window.draw(circle);
+                    }
+
+                    if(gameInformation.getPlayerHealth() == 0) {
+                        window.draw(respawnText);
+                    }
+
+                    window.display();
+                }catch (const std::exception& e) {
+                    std::cout << "Error in main: " << e.what() << std::endl;
+                }
+
             }
-
         }
+    }catch(const std::exception& e) {
+        std::cout << "Error in main: " << e.what() << std::endl;
     }
-
+    std::cout << "Window closed" << std::endl;
     return 0;
 }
 
@@ -280,6 +302,8 @@ void loadMap(const std::string &map, MapData &mapData) {
                                 break;
                             case '1':
                                 mapData.addBasicWall(BasicWall(Vector2f(j * 40, i * 40), Vector2f(40, 40)));
+                                break;
+                            case '2':
                                 break;
                             default:
                                 std::cerr << "Ungültiges Zeichen in Zeile " << i + 1 << " und Spalte " << j + 1 << std::endl;
