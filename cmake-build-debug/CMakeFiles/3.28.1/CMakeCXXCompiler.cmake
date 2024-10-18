@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "E:/JetBrains/CLion 2024.1.1/bin/mingw/bin/g++.exe")
+set(CMAKE_CXX_COMPILER "S:/CLion 2024.1.1/bin/mingw/bin/g++.exe")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_VERSION "13.1.0")
@@ -22,11 +22,11 @@ set(CMAKE_CXX_SIMULATE_VERSION "")
 
 
 
-set(CMAKE_AR "E:/JetBrains/CLion 2024.1.1/bin/mingw/bin/ar.exe")
-set(CMAKE_CXX_COMPILER_AR "E:/JetBrains/CLion 2024.1.1/bin/mingw/bin/gcc-ar.exe")
-set(CMAKE_RANLIB "E:/JetBrains/CLion 2024.1.1/bin/mingw/bin/ranlib.exe")
-set(CMAKE_CXX_COMPILER_RANLIB "E:/JetBrains/CLion 2024.1.1/bin/mingw/bin/gcc-ranlib.exe")
-set(CMAKE_LINKER "E:/JetBrains/CLion 2024.1.1/bin/mingw/bin/ld.exe")
+set(CMAKE_AR "S:/CLion 2024.1.1/bin/mingw/bin/ar.exe")
+set(CMAKE_CXX_COMPILER_AR "S:/CLion 2024.1.1/bin/mingw/bin/gcc-ar.exe")
+set(CMAKE_RANLIB "S:/CLion 2024.1.1/bin/mingw/bin/ranlib.exe")
+set(CMAKE_CXX_COMPILER_RANLIB "S:/CLion 2024.1.1/bin/mingw/bin/gcc-ranlib.exe")
+set(CMAKE_LINKER "S:/CLion 2024.1.1/bin/mingw/bin/ld.exe")
 set(CMAKE_MT "")
 set(CMAKE_TAPI "CMAKE_TAPI-NOTFOUND")
 set(CMAKE_COMPILER_IS_GNUCXX 1)
@@ -79,7 +79,7 @@ endif()
 
 
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "E:/JetBrains/CLion 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++;E:/JetBrains/CLion 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32;E:/JetBrains/CLion 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward;E:/JetBrains/CLion 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include;E:/JetBrains/CLion 2024.1.1/bin/mingw/include;E:/JetBrains/CLion 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;E:/JetBrains/CLion 2024.1.1/bin/mingw/x86_64-w64-mingw32/include")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "S:/CLion 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++;S:/CLion 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32;S:/CLion 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward;S:/CLion 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include;S:/CLion 2024.1.1/bin/mingw/include;S:/CLion 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;S:/CLion 2024.1.1/bin/mingw/x86_64-w64-mingw32/include")
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "")
 set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
