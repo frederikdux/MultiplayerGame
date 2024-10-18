@@ -1,28 +1,45 @@
 cmake_minimum_required(VERSION 3.11)
 project(MultiplayerGame VERSION 1.0 LANGUAGES CXX)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-set(CURL_LIBRARY "E:/msys2/mingw64/lib/libcurl.dll.a")
-set(CURL_INCLUDE_DIR "E:/msys2/mingw64/include")
-cmake_policy(SET CMP0135 NEW)
+# Setze den Build-Typ auf Debug und die Compiler-Flags
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_CXX_FLAGS_DEBUG "-g3")
 
-link_directories("E:/msys2/mingw64/lib")
+set(SANITIZER_FLAGS "-fsanitize=address -fsanitize=undefined -fno-sanitize=undefined-trap-on-error -fno-sanitize=undefined-trap")
 
 
+# Setze den C++-Standard für alle Unterprojekte
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc --static")
 
-# Find SFML (require Network module)
+# Compiler Flags für statisches Linking
+set(CMAKE_CXX_FLAGS "-g3 -static-libstdc++ -static-libgcc")
+
+# Definiere den benutzerdefinierten Modulpfad für zusätzliche CMake-Skripte
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+# Suche nach SFML (erfordere system, window, graphics, network)
 set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR E:/CLion/x64/SFML-2.6.1/lib/cmake/SFML)
-find_package(SFML COMPONENTS system window graphics network audio REQUIRED)
+find_package(SFML 2.5 COMPONENTS system window graphics network REQUIRED)
 
+# Suche nach CURL
+find_package(CURL REQUIRED)
+if(NOT CURL_FOUND)
+    message(FATAL_ERROR "libcurl wurde nicht gefunden!")
+endif()
+
+# Suche nach ENet
 find_library(ENET_LIBRARY NAMES enet PATHS C:/Users/Frederik/CLionProjects/enet/build)
 include_directories(C:/Users/Frederik/CLionProjects/enet/include)
+if(NOT ENET_LIBRARY)
+    message(FATAL_ERROR "ENet library not found!")
+endif()
 
+# Suche nach ZLIB
+find_package(ZLIB REQUIRED)
 
-
+# Fetch nlohmann_json
 include(FetchContent)
 FetchContent_Declare(
         nlohmann_json
@@ -31,8 +48,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(nlohmann_json)
 
-find_package(ZLIB REQUIRED)
-
-# Add subdirectories for server and client
-add_subdirectory(Server)
+# Füge Unterverzeichnisse für Server, Client und UserInterface hinzu
 add_subdirectory(Client)
+add_subdirectory(Server)
+add_subdirectory(UserInterface)
+
+# (Optional) Setze die C++-Flags und den Standard auch in den Unterprojekten
+# Das ist nützlich, wenn die Unterprojekte eigene CMakeLists.txt haben.
+# Füge das in jede Unterprojekt-CMakeLists.txt ein:
+# set(CMAKE_CXX_STANDARD 17)
+# set(CMAKE_CXX_STANDARD_REQUIRED True)

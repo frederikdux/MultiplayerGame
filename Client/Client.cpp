@@ -201,6 +201,7 @@ void Client::sendBulletShot(int clientId, int bulletId, float x, float y, float 
 void Client::processENetEvents() {
     try {
         bool stopThread = false;
+        int test = 0;
         while (!stopThread) {
             ENetEvent event;
             while (enet_host_service(enet_client, &event, 1000) > 0) {

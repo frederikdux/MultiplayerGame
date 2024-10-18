@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Frederik/CLionProjects/GameServerTest
+# Install script for directory: C:/Users/Frederik/CLionProjects/MultiplayerGame
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,14 +34,15 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "E:/JetBrains/CLion 2024.1.1/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "S:/CLion 2024.1.1/bin/mingw/bin/objdump.exe")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-build/cmake_install.cmake")
-  include("C:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/Server/cmake_install.cmake")
-  include("C:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/Client/cmake_install.cmake")
+  include("C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-build/cmake_install.cmake")
+  include("C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/Client/cmake_install.cmake")
+  include("C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/Server/cmake_install.cmake")
+  include("C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/UserInterface/cmake_install.cmake")
 
 endif()
 
@@ -53,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

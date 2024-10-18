@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/
+cmake_ninja_workdir = C$:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug && "E:\JetBrains\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -56,7 +56,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug && "E:\JetBrains\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Frederik\CLionProjects\GameServerTest -BC:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug"
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Frederik\CLionProjects\MultiplayerGame -BC:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -65,7 +65,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/Frederik/CLionProjects/GameServerTest/CMakeLists.txt
+# C:/Users/Frederik/CLionProjects/MultiplayerGame/CMakeLists.txt
 # =============================================================================
 
 
@@ -73,7 +73,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build _deps/nlohmann_json-build/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug\_deps\nlohmann_json-build && "E:\JetBrains\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug\_deps\nlohmann_json-build && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -84,7 +84,7 @@ build _deps/nlohmann_json-build/edit_cache: phony _deps/nlohmann_json-build/CMak
 # Utility command for rebuild_cache
 
 build _deps/nlohmann_json-build/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug\_deps\nlohmann_json-build && "E:\JetBrains\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Frederik\CLionProjects\GameServerTest -BC:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug"
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug\_deps\nlohmann_json-build && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Frederik\CLionProjects\MultiplayerGame -BC:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -93,119 +93,7 @@ build _deps/nlohmann_json-build/rebuild_cache: phony _deps/nlohmann_json-build/C
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/Frederik/CLionProjects/GameServerTest/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
-# Object build statements for EXECUTABLE target Server
-
-
-#############################################
-# Order-only phony target for Server
-
-build cmake_object_order_depends_target_Server: phony || Server/CMakeFiles/Server.dir
-
-build Server/CMakeFiles/Server.dir/main.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Server/main.cpp || cmake_object_order_depends_target_Server
-  DEFINES = -DSFML_STATIC
-  DEP_FILE = Server\CMakeFiles\Server.dir\main.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include
-  OBJECT_DIR = Server\CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir
-
-build Server/CMakeFiles/Server.dir/Server.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Server/Server.cpp || cmake_object_order_depends_target_Server
-  DEFINES = -DSFML_STATIC
-  DEP_FILE = Server\CMakeFiles\Server.dir\Server.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include
-  OBJECT_DIR = Server\CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir
-
-build Server/CMakeFiles/Server.dir/__/Game/GameInformation.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Game/GameInformation.cpp || cmake_object_order_depends_target_Server
-  DEFINES = -DSFML_STATIC
-  DEP_FILE = Server\CMakeFiles\Server.dir\__\Game\GameInformation.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include
-  OBJECT_DIR = Server\CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir\__\Game
-
-build Server/CMakeFiles/Server.dir/__/Game/EnemyInformation.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Game/EnemyInformation.cpp || cmake_object_order_depends_target_Server
-  DEFINES = -DSFML_STATIC
-  DEP_FILE = Server\CMakeFiles\Server.dir\__\Game\EnemyInformation.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include
-  OBJECT_DIR = Server\CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir\__\Game
-
-build Server/CMakeFiles/Server.dir/__/Game/Bullet.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Game/Bullet.cpp || cmake_object_order_depends_target_Server
-  DEFINES = -DSFML_STATIC
-  DEP_FILE = Server\CMakeFiles\Server.dir\__\Game\Bullet.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include
-  OBJECT_DIR = Server\CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir\__\Game
-
-build Server/CMakeFiles/Server.dir/ClientInfo.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Server/ClientInfo.cpp || cmake_object_order_depends_target_Server
-  DEFINES = -DSFML_STATIC
-  DEP_FILE = Server\CMakeFiles\Server.dir\ClientInfo.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include
-  OBJECT_DIR = Server\CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir
-
-build Server/CMakeFiles/Server.dir/MessageHandler.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Server/MessageHandler.cpp || cmake_object_order_depends_target_Server
-  DEFINES = -DSFML_STATIC
-  DEP_FILE = Server\CMakeFiles\Server.dir\MessageHandler.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include
-  OBJECT_DIR = Server\CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target Server
-
-
-#############################################
-# Link the executable Server\Server.exe
-
-build Server/Server.exe: CXX_EXECUTABLE_LINKER__Server_Debug Server/CMakeFiles/Server.dir/main.cpp.obj Server/CMakeFiles/Server.dir/Server.cpp.obj Server/CMakeFiles/Server.dir/__/Game/GameInformation.cpp.obj Server/CMakeFiles/Server.dir/__/Game/EnemyInformation.cpp.obj Server/CMakeFiles/Server.dir/__/Game/Bullet.cpp.obj Server/CMakeFiles/Server.dir/ClientInfo.cpp.obj Server/CMakeFiles/Server.dir/MessageHandler.cpp.obj | E$:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a E$:/CLion/x64/SFML-2.6.1/lib/libsfml-network-s-d.a C$:/Users/Frederik/CLionProjects/enet/build/libenet.a C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/lib/libcurl-d.dll.a E$:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a
-  FLAGS = -static-libstdc++ -static-libgcc --static -g
-  LINK_LIBRARIES = E:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a  E:/CLion/x64/SFML-2.6.1/lib/libsfml-network-s-d.a  C:/Users/Frederik/CLionProjects/enet/build/libenet.a  C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/lib/libcurl-d.dll.a  E:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a  -lwinmm  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  LINK_PATH = -LE:/msys2/mingw64/lib
-  OBJECT_DIR = Server\CMakeFiles\Server.dir
-  POST_BUILD = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug\Server && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/Frederik/.vcpkg-clion/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/Server/Server.exe -installedDir C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/bin -OutVariable out"
-  PRE_LINK = cd .
-  TARGET_FILE = Server\Server.exe
-  TARGET_IMPLIB = Server\libServer.dll.a
-  TARGET_PDB = Server.exe.dbg
-
-
-#############################################
-# Utility command for edit_cache
-
-build Server/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug\Server && "E:\JetBrains\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build Server/edit_cache: phony Server/CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build Server/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug\Server && "E:\JetBrains\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Frederik\CLionProjects\GameServerTest -BC:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build Server/rebuild_cache: phony Server/CMakeFiles/rebuild_cache.util
-
-# =============================================================================
-# Write statements declared in CMakeLists.txt:
-# C:/Users/Frederik/CLionProjects/GameServerTest/CMakeLists.txt
+# C:/Users/Frederik/CLionProjects/MultiplayerGame/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -217,53 +105,65 @@ build Server/rebuild_cache: phony Server/CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_Client: phony || Client/CMakeFiles/Client.dir
 
-build Client/CMakeFiles/Client.dir/main.cpp.obj: CXX_COMPILER__Client_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Client/main.cpp || cmake_object_order_depends_target_Client
+build Client/CMakeFiles/Client.dir/main.cpp.obj: CXX_COMPILER__Client_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Client/main.cpp || cmake_object_order_depends_target_Client
   DEFINES = -DSFML_STATIC
   DEP_FILE = Client\CMakeFiles\Client.dir\main.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g3 -std=gnu++17 -fdiagnostics-color=always -g -O0
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
   OBJECT_DIR = Client\CMakeFiles\Client.dir
   OBJECT_FILE_DIR = Client\CMakeFiles\Client.dir
+  TARGET_COMPILE_PDB = Client\CMakeFiles\Client.dir\
+  TARGET_PDB = Client\Client.pdb
 
-build Client/CMakeFiles/Client.dir/Client.cpp.obj: CXX_COMPILER__Client_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Client/Client.cpp || cmake_object_order_depends_target_Client
+build Client/CMakeFiles/Client.dir/Client.cpp.obj: CXX_COMPILER__Client_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Client/Client.cpp || cmake_object_order_depends_target_Client
   DEFINES = -DSFML_STATIC
   DEP_FILE = Client\CMakeFiles\Client.dir\Client.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g3 -std=gnu++17 -fdiagnostics-color=always -g -O0
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
   OBJECT_DIR = Client\CMakeFiles\Client.dir
   OBJECT_FILE_DIR = Client\CMakeFiles\Client.dir
+  TARGET_COMPILE_PDB = Client\CMakeFiles\Client.dir\
+  TARGET_PDB = Client\Client.pdb
 
-build Client/CMakeFiles/Client.dir/__/Game/GameInformation.cpp.obj: CXX_COMPILER__Client_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Game/GameInformation.cpp || cmake_object_order_depends_target_Client
+build Client/CMakeFiles/Client.dir/__/Game/GameInformation.cpp.obj: CXX_COMPILER__Client_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Game/GameInformation.cpp || cmake_object_order_depends_target_Client
   DEFINES = -DSFML_STATIC
   DEP_FILE = Client\CMakeFiles\Client.dir\__\Game\GameInformation.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g3 -std=gnu++17 -fdiagnostics-color=always -g -O0
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
   OBJECT_DIR = Client\CMakeFiles\Client.dir
   OBJECT_FILE_DIR = Client\CMakeFiles\Client.dir\__\Game
+  TARGET_COMPILE_PDB = Client\CMakeFiles\Client.dir\
+  TARGET_PDB = Client\Client.pdb
 
-build Client/CMakeFiles/Client.dir/__/Game/EnemyInformation.cpp.obj: CXX_COMPILER__Client_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Game/EnemyInformation.cpp || cmake_object_order_depends_target_Client
+build Client/CMakeFiles/Client.dir/__/Game/EnemyInformation.cpp.obj: CXX_COMPILER__Client_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Game/EnemyInformation.cpp || cmake_object_order_depends_target_Client
   DEFINES = -DSFML_STATIC
   DEP_FILE = Client\CMakeFiles\Client.dir\__\Game\EnemyInformation.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g3 -std=gnu++17 -fdiagnostics-color=always -g -O0
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
   OBJECT_DIR = Client\CMakeFiles\Client.dir
   OBJECT_FILE_DIR = Client\CMakeFiles\Client.dir\__\Game
+  TARGET_COMPILE_PDB = Client\CMakeFiles\Client.dir\
+  TARGET_PDB = Client\Client.pdb
 
-build Client/CMakeFiles/Client.dir/__/Game/Bullet.cpp.obj: CXX_COMPILER__Client_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Game/Bullet.cpp || cmake_object_order_depends_target_Client
+build Client/CMakeFiles/Client.dir/__/Game/Bullet.cpp.obj: CXX_COMPILER__Client_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Game/Bullet.cpp || cmake_object_order_depends_target_Client
   DEFINES = -DSFML_STATIC
   DEP_FILE = Client\CMakeFiles\Client.dir\__\Game\Bullet.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g3 -std=gnu++17 -fdiagnostics-color=always -g -O0
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
   OBJECT_DIR = Client\CMakeFiles\Client.dir
   OBJECT_FILE_DIR = Client\CMakeFiles\Client.dir\__\Game
+  TARGET_COMPILE_PDB = Client\CMakeFiles\Client.dir\
+  TARGET_PDB = Client\Client.pdb
 
-build Client/CMakeFiles/Client.dir/ServerData.cpp.obj: CXX_COMPILER__Client_unscanned_Debug C$:/Users/Frederik/CLionProjects/GameServerTest/Client/ServerData.cpp || cmake_object_order_depends_target_Client
+build Client/CMakeFiles/Client.dir/ServerData.cpp.obj: CXX_COMPILER__Client_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Client/ServerData.cpp || cmake_object_order_depends_target_Client
   DEFINES = -DSFML_STATIC
   DEP_FILE = Client\CMakeFiles\Client.dir\ServerData.cpp.obj.d
-  FLAGS = -static-libstdc++ -static-libgcc --static -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IE:/msys2/mingw64/include -IC:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-src/include -isystem E:/CLion/x64/SFML-2.6.1/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g3 -std=gnu++17 -fdiagnostics-color=always -g -O0
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
   OBJECT_DIR = Client\CMakeFiles\Client.dir
   OBJECT_FILE_DIR = Client\CMakeFiles\Client.dir
+  TARGET_COMPILE_PDB = Client\CMakeFiles\Client.dir\
+  TARGET_PDB = Client\Client.pdb
 
 
 # =============================================================================
@@ -273,23 +173,23 @@ build Client/CMakeFiles/Client.dir/ServerData.cpp.obj: CXX_COMPILER__Client_unsc
 #############################################
 # Link the executable Client\Client.exe
 
-build Client/Client.exe: CXX_EXECUTABLE_LINKER__Client_Debug Client/CMakeFiles/Client.dir/main.cpp.obj Client/CMakeFiles/Client.dir/Client.cpp.obj Client/CMakeFiles/Client.dir/__/Game/GameInformation.cpp.obj Client/CMakeFiles/Client.dir/__/Game/EnemyInformation.cpp.obj Client/CMakeFiles/Client.dir/__/Game/Bullet.cpp.obj Client/CMakeFiles/Client.dir/ServerData.cpp.obj | E$:/CLion/x64/SFML-2.6.1/lib/libsfml-graphics-s-d.a E$:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a E$:/CLion/x64/SFML-2.6.1/lib/libsfml-network-s-d.a C$:/Users/Frederik/CLionProjects/enet/build/libenet.a C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/lib/libcurl-d.dll.a C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/lib/libzlibd.dll.a E$:/CLion/x64/SFML-2.6.1/lib/libsfml-window-s-d.a E$:/CLion/x64/SFML-2.6.1/lib/libfreetype.a E$:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a
-  FLAGS = -static-libstdc++ -static-libgcc --static -g
-  LINK_LIBRARIES = E:/CLion/x64/SFML-2.6.1/lib/libsfml-graphics-s-d.a  E:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a  E:/CLion/x64/SFML-2.6.1/lib/libsfml-network-s-d.a  C:/Users/Frederik/CLionProjects/enet/build/libenet.a  C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/lib/libcurl-d.dll.a  C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/lib/libzlibd.dll.a  E:/CLion/x64/SFML-2.6.1/lib/libsfml-window-s-d.a  -lOpenGL32  -lgdi32  E:/CLion/x64/SFML-2.6.1/lib/libfreetype.a  E:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a  -lwinmm  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  LINK_PATH = -LE:/msys2/mingw64/lib
+build Client/Client.exe: CXX_EXECUTABLE_LINKER__Client_Debug Client/CMakeFiles/Client.dir/main.cpp.obj Client/CMakeFiles/Client.dir/Client.cpp.obj Client/CMakeFiles/Client.dir/__/Game/GameInformation.cpp.obj Client/CMakeFiles/Client.dir/__/Game/EnemyInformation.cpp.obj Client/CMakeFiles/Client.dir/__/Game/Bullet.cpp.obj Client/CMakeFiles/Client.dir/ServerData.cpp.obj | E$:/CLion/x64/SFML-2.6.1/lib/libsfml-graphics-s-d.a E$:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a E$:/CLion/x64/SFML-2.6.1/lib/libsfml-network-s-d.a C$:/Users/Frederik/CLionProjects/enet/build/libenet.a C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/lib/libzlibd.dll.a E$:/CLion/x64/SFML-2.6.1/lib/libsfml-window-s-d.a E$:/CLion/x64/SFML-2.6.1/lib/libfreetype.a E$:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/lib/libcurl-d.dll.a
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g3
+  LINK_LIBRARIES = E:/CLion/x64/SFML-2.6.1/lib/libsfml-graphics-s-d.a  E:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a  E:/CLion/x64/SFML-2.6.1/lib/libsfml-network-s-d.a  C:/Users/Frederik/CLionProjects/enet/build/libenet.a  C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/lib/libzlibd.dll.a  E:/CLion/x64/SFML-2.6.1/lib/libsfml-window-s-d.a  -lOpenGL32  -lgdi32  E:/CLion/x64/SFML-2.6.1/lib/libfreetype.a  E:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a  -lwinmm  -lws2_32  C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/lib/libcurl-d.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = Client\CMakeFiles\Client.dir
-  POST_BUILD = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug\Client && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/Frederik/.vcpkg-clion/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/Client/Client.exe -installedDir C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/bin -OutVariable out"
+  POST_BUILD = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug\Client && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/Frederik/.vcpkg-clion/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/Client/Client.exe -installedDir C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/bin -OutVariable out"
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = Client\CMakeFiles\Client.dir\
   TARGET_FILE = Client\Client.exe
   TARGET_IMPLIB = Client\libClient.dll.a
-  TARGET_PDB = Client.exe.dbg
+  TARGET_PDB = Client\Client.pdb
 
 
 #############################################
 # Utility command for edit_cache
 
 build Client/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug\Client && "E:\JetBrains\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug\Client && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -300,12 +200,258 @@ build Client/edit_cache: phony Client/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build Client/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug\Client && "E:\JetBrains\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Frederik\CLionProjects\GameServerTest -BC:\Users\Frederik\CLionProjects\GameServerTest\cmake-build-debug"
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug\Client && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Frederik\CLionProjects\MultiplayerGame -BC:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
 build Client/rebuild_cache: phony Client/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/Frederik/CLionProjects/MultiplayerGame/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Server
+
+
+#############################################
+# Order-only phony target for Server
+
+build cmake_object_order_depends_target_Server: phony || Server/CMakeFiles/Server.dir
+
+build Server/CMakeFiles/Server.dir/main.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Server/main.cpp || cmake_object_order_depends_target_Server
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = Server\CMakeFiles\Server.dir\main.cpp.obj.d
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
+  OBJECT_DIR = Server\CMakeFiles\Server.dir
+  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir
+  TARGET_COMPILE_PDB = Server\CMakeFiles\Server.dir\
+  TARGET_PDB = Server\Server.pdb
+
+build Server/CMakeFiles/Server.dir/Server.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Server/Server.cpp || cmake_object_order_depends_target_Server
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = Server\CMakeFiles\Server.dir\Server.cpp.obj.d
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
+  OBJECT_DIR = Server\CMakeFiles\Server.dir
+  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir
+  TARGET_COMPILE_PDB = Server\CMakeFiles\Server.dir\
+  TARGET_PDB = Server\Server.pdb
+
+build Server/CMakeFiles/Server.dir/__/Game/GameInformation.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Game/GameInformation.cpp || cmake_object_order_depends_target_Server
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = Server\CMakeFiles\Server.dir\__\Game\GameInformation.cpp.obj.d
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
+  OBJECT_DIR = Server\CMakeFiles\Server.dir
+  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir\__\Game
+  TARGET_COMPILE_PDB = Server\CMakeFiles\Server.dir\
+  TARGET_PDB = Server\Server.pdb
+
+build Server/CMakeFiles/Server.dir/__/Game/EnemyInformation.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Game/EnemyInformation.cpp || cmake_object_order_depends_target_Server
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = Server\CMakeFiles\Server.dir\__\Game\EnemyInformation.cpp.obj.d
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
+  OBJECT_DIR = Server\CMakeFiles\Server.dir
+  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir\__\Game
+  TARGET_COMPILE_PDB = Server\CMakeFiles\Server.dir\
+  TARGET_PDB = Server\Server.pdb
+
+build Server/CMakeFiles/Server.dir/__/Game/Bullet.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Game/Bullet.cpp || cmake_object_order_depends_target_Server
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = Server\CMakeFiles\Server.dir\__\Game\Bullet.cpp.obj.d
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
+  OBJECT_DIR = Server\CMakeFiles\Server.dir
+  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir\__\Game
+  TARGET_COMPILE_PDB = Server\CMakeFiles\Server.dir\
+  TARGET_PDB = Server\Server.pdb
+
+build Server/CMakeFiles/Server.dir/ClientInfo.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Server/ClientInfo.cpp || cmake_object_order_depends_target_Server
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = Server\CMakeFiles\Server.dir\ClientInfo.cpp.obj.d
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
+  OBJECT_DIR = Server\CMakeFiles\Server.dir
+  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir
+  TARGET_COMPILE_PDB = Server\CMakeFiles\Server.dir\
+  TARGET_PDB = Server\Server.pdb
+
+build Server/CMakeFiles/Server.dir/MessageHandler.cpp.obj: CXX_COMPILER__Server_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/Server/MessageHandler.cpp || cmake_object_order_depends_target_Server
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = Server\CMakeFiles\Server.dir\MessageHandler.cpp.obj.d
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/enet/include -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-src/include -isystem C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/include -isystem E:/CLion/x64/SFML-2.6.1/include
+  OBJECT_DIR = Server\CMakeFiles\Server.dir
+  OBJECT_FILE_DIR = Server\CMakeFiles\Server.dir
+  TARGET_COMPILE_PDB = Server\CMakeFiles\Server.dir\
+  TARGET_PDB = Server\Server.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Server
+
+
+#############################################
+# Link the executable Server\Server.exe
+
+build Server/Server.exe: CXX_EXECUTABLE_LINKER__Server_Debug Server/CMakeFiles/Server.dir/main.cpp.obj Server/CMakeFiles/Server.dir/Server.cpp.obj Server/CMakeFiles/Server.dir/__/Game/GameInformation.cpp.obj Server/CMakeFiles/Server.dir/__/Game/EnemyInformation.cpp.obj Server/CMakeFiles/Server.dir/__/Game/Bullet.cpp.obj Server/CMakeFiles/Server.dir/ClientInfo.cpp.obj Server/CMakeFiles/Server.dir/MessageHandler.cpp.obj | E$:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a E$:/CLion/x64/SFML-2.6.1/lib/libsfml-network-s-d.a C$:/Users/Frederik/CLionProjects/enet/build/libenet.a E$:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/lib/libcurl-d.dll.a
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -g
+  LINK_LIBRARIES = E:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a  E:/CLion/x64/SFML-2.6.1/lib/libsfml-network-s-d.a  C:/Users/Frederik/CLionProjects/enet/build/libenet.a  E:/CLion/x64/SFML-2.6.1/lib/libsfml-system-s-d.a  -lwinmm  -lws2_32  C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/lib/libcurl-d.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = Server\CMakeFiles\Server.dir
+  POST_BUILD = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug\Server && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/Frederik/.vcpkg-clion/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/Server/Server.exe -installedDir C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/bin -OutVariable out"
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = Server\CMakeFiles\Server.dir\
+  TARGET_FILE = Server\Server.exe
+  TARGET_IMPLIB = Server\libServer.dll.a
+  TARGET_PDB = Server\Server.pdb
+
+
+#############################################
+# Utility command for edit_cache
+
+build Server/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug\Server && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Server/edit_cache: phony Server/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Server/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug\Server && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Frederik\CLionProjects\MultiplayerGame -BC:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Server/rebuild_cache: phony Server/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/Frederik/CLionProjects/MultiplayerGame/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target UserInterface
+
+
+#############################################
+# Order-only phony target for UserInterface
+
+build cmake_object_order_depends_target_UserInterface: phony || UserInterface/UserInterface_autogen UserInterface/UserInterface_autogen/mocs_compilation.cpp UserInterface/UserInterface_autogen/timestamp UserInterface/UserInterface_autogen_timestamp_deps
+
+build UserInterface/CMakeFiles/UserInterface.dir/UserInterface_autogen/mocs_compilation.cpp.obj: CXX_COMPILER__UserInterface_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/UserInterface/UserInterface_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_UserInterface
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = UserInterface\CMakeFiles\UserInterface.dir\UserInterface_autogen\mocs_compilation.cpp.obj.d
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -static-libstdc++ -static-libgcc -g3 -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/UserInterface/UserInterface_autogen/include -IC:/Users/Frederik/CLionProjects/enet/include -isystem E:/MSYS2/mingw64/include -isystem E:/MSYS2/mingw64/include/QtWidgets -isystem E:/MSYS2/mingw64/include/QtGui -isystem E:/MSYS2/mingw64/include/QtCore -isystem E:/MSYS2/mingw64/share/qt5/mkspecs/win32-g++ -isystem E:/MSYS2/mingw64/include/QtNetwork
+  OBJECT_DIR = UserInterface\CMakeFiles\UserInterface.dir
+  OBJECT_FILE_DIR = UserInterface\CMakeFiles\UserInterface.dir\UserInterface_autogen
+  TARGET_COMPILE_PDB = UserInterface\CMakeFiles\UserInterface.dir\
+  TARGET_PDB = UserInterface\UserInterface.pdb
+
+build UserInterface/CMakeFiles/UserInterface.dir/main.cpp.obj: CXX_COMPILER__UserInterface_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/UserInterface/main.cpp || cmake_object_order_depends_target_UserInterface
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = UserInterface\CMakeFiles\UserInterface.dir\main.cpp.obj.d
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -static-libstdc++ -static-libgcc -g3 -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/UserInterface/UserInterface_autogen/include -IC:/Users/Frederik/CLionProjects/enet/include -isystem E:/MSYS2/mingw64/include -isystem E:/MSYS2/mingw64/include/QtWidgets -isystem E:/MSYS2/mingw64/include/QtGui -isystem E:/MSYS2/mingw64/include/QtCore -isystem E:/MSYS2/mingw64/share/qt5/mkspecs/win32-g++ -isystem E:/MSYS2/mingw64/include/QtNetwork
+  OBJECT_DIR = UserInterface\CMakeFiles\UserInterface.dir
+  OBJECT_FILE_DIR = UserInterface\CMakeFiles\UserInterface.dir
+  TARGET_COMPILE_PDB = UserInterface\CMakeFiles\UserInterface.dir\
+  TARGET_PDB = UserInterface\UserInterface.pdb
+
+build UserInterface/CMakeFiles/UserInterface.dir/MainWindow.cpp.obj: CXX_COMPILER__UserInterface_unscanned_Debug C$:/Users/Frederik/CLionProjects/MultiplayerGame/UserInterface/MainWindow.cpp || cmake_object_order_depends_target_UserInterface
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = UserInterface\CMakeFiles\UserInterface.dir\MainWindow.cpp.obj.d
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -static-libstdc++ -static-libgcc -g3 -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/UserInterface/UserInterface_autogen/include -IC:/Users/Frederik/CLionProjects/enet/include -isystem E:/MSYS2/mingw64/include -isystem E:/MSYS2/mingw64/include/QtWidgets -isystem E:/MSYS2/mingw64/include/QtGui -isystem E:/MSYS2/mingw64/include/QtCore -isystem E:/MSYS2/mingw64/share/qt5/mkspecs/win32-g++ -isystem E:/MSYS2/mingw64/include/QtNetwork
+  OBJECT_DIR = UserInterface\CMakeFiles\UserInterface.dir
+  OBJECT_FILE_DIR = UserInterface\CMakeFiles\UserInterface.dir
+  TARGET_COMPILE_PDB = UserInterface\CMakeFiles\UserInterface.dir\
+  TARGET_PDB = UserInterface\UserInterface.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target UserInterface
+
+
+#############################################
+# Link the executable UserInterface\UserInterface.exe
+
+build UserInterface/UserInterface.exe: CXX_EXECUTABLE_LINKER__UserInterface_Debug UserInterface/CMakeFiles/UserInterface.dir/UserInterface_autogen/mocs_compilation.cpp.obj UserInterface/CMakeFiles/UserInterface.dir/main.cpp.obj UserInterface/CMakeFiles/UserInterface.dir/MainWindow.cpp.obj | E$:/MSYS2/mingw64/lib/libQt5Widgets.dll.a E$:/MSYS2/mingw64/lib/libQt5Gui.dll.a E$:/MSYS2/mingw64/lib/libQt5Network.dll.a E$:/MSYS2/mingw64/lib/libQt5Core.dll.a || UserInterface/UserInterface_autogen UserInterface/UserInterface_autogen_timestamp_deps
+  FLAGS = -g3 -static-libstdc++ -static-libgcc -static-libstdc++ -static-libgcc -g3
+  LINK_LIBRARIES = E:/MSYS2/mingw64/lib/libQt5Widgets.dll.a  E:/MSYS2/mingw64/lib/libQt5Gui.dll.a  E:/MSYS2/mingw64/lib/libQt5Network.dll.a  E:/MSYS2/mingw64/lib/libQt5Core.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = UserInterface\CMakeFiles\UserInterface.dir
+  POST_BUILD = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug\UserInterface && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/Frederik/.vcpkg-clion/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/UserInterface/UserInterface.exe -installedDir C:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/debug/bin -OutVariable out"
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = UserInterface\CMakeFiles\UserInterface.dir\
+  TARGET_FILE = UserInterface\UserInterface.exe
+  TARGET_IMPLIB = UserInterface\libUserInterface.dll.a
+  TARGET_PDB = UserInterface\UserInterface.pdb
+
+
+#############################################
+# Utility command for edit_cache
+
+build UserInterface/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug\UserInterface && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build UserInterface/edit_cache: phony UserInterface/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build UserInterface/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug\UserInterface && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Frederik\CLionProjects\MultiplayerGame -BC:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build UserInterface/rebuild_cache: phony UserInterface/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for UserInterface_autogen_timestamp_deps
+
+build UserInterface/UserInterface_autogen_timestamp_deps: phony UserInterface/CMakeFiles/UserInterface_autogen_timestamp_deps
+
+
+#############################################
+# Utility command for UserInterface_autogen
+
+build UserInterface/UserInterface_autogen: phony UserInterface/CMakeFiles/UserInterface_autogen UserInterface/UserInterface_autogen/timestamp UserInterface/UserInterface_autogen/mocs_compilation.cpp UserInterface/UserInterface_autogen_timestamp_deps
+
+
+#############################################
+# Custom command for UserInterface\UserInterface_autogen\timestamp
+
+build UserInterface/UserInterface_autogen/timestamp UserInterface/UserInterface_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}UserInterface/UserInterface_autogen/timestamp ${cmake_ninja_workdir}UserInterface/UserInterface_autogen/mocs_compilation.cpp: CUSTOM_COMMAND E$:/MSYS2/mingw64/bin/moc.exe E$:/MSYS2/mingw64/bin/uic.exe || UserInterface/UserInterface_autogen_timestamp_deps
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Frederik\CLionProjects\MultiplayerGame\cmake-build-debug\UserInterface && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autogen C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/UserInterface/CMakeFiles/UserInterface_autogen.dir/AutogenInfo.json Debug && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -E touch C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/UserInterface/UserInterface_autogen/timestamp && "S:\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -E cmake_transform_depfile Ninja gccdepfile C:/Users/Frederik/CLionProjects/MultiplayerGame C:/Users/Frederik/CLionProjects/MultiplayerGame/UserInterface C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/UserInterface C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/UserInterface/UserInterface_autogen/deps C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/CMakeFiles/d/d0246452dc89b386f93ee999dc808e72083d6f340f4a6acf57fae4c870f3f68d.d"
+  DESC = Automatic MOC and UIC for target UserInterface
+  depfile = C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/CMakeFiles/d/d0246452dc89b386f93ee999dc808e72083d6f340f4a6acf57fae4c870f3f68d.d
+  restat = 1
+
+
+#############################################
+# Phony custom command for UserInterface\CMakeFiles\UserInterface_autogen_timestamp_deps
+
+build UserInterface/CMakeFiles/UserInterface_autogen_timestamp_deps | ${cmake_ninja_workdir}UserInterface/CMakeFiles/UserInterface_autogen_timestamp_deps: phony E$:/MSYS2/mingw64/lib/libQt5Core.dll.a E$:/MSYS2/mingw64/bin/moc.exe E$:/MSYS2/mingw64/bin/uic.exe E$:/MSYS2/mingw64/lib/libQt5Gui.dll.a E$:/MSYS2/mingw64/lib/libQt5Network.dll.a E$:/MSYS2/mingw64/lib/libQt5Widgets.dll.a
+
+
+#############################################
+# Phony custom command for UserInterface\CMakeFiles\UserInterface_autogen
+
+build UserInterface/CMakeFiles/UserInterface_autogen | ${cmake_ninja_workdir}UserInterface/CMakeFiles/UserInterface_autogen: phony UserInterface/UserInterface_autogen/timestamp || UserInterface/UserInterface_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.
@@ -318,34 +464,49 @@ build Server: phony Server/Server.exe
 
 build Server.exe: phony Server/Server.exe
 
+build UserInterface: phony UserInterface/UserInterface.exe
+
+build UserInterface.exe: phony UserInterface/UserInterface.exe
+
+build UserInterface_autogen: phony UserInterface/UserInterface_autogen
+
+build UserInterface_autogen_timestamp_deps: phony UserInterface/UserInterface_autogen_timestamp_deps
+
 # =============================================================================
 # Folder targets.
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug
+# Folder: C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug
 
-build all: phony _deps/nlohmann_json-build/all Server/all Client/all
+build all: phony _deps/nlohmann_json-build/all Client/all Server/all UserInterface/all
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/Client
+# Folder: C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/Client
 
 build Client/all: phony Client/Client.exe
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/Server
+# Folder: C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/Server
 
 build Server/all: phony Server/Server.exe
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/Frederik/CLionProjects/GameServerTest/cmake-build-debug/_deps/nlohmann_json-build
+# Folder: C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/UserInterface
+
+build UserInterface/all: phony UserInterface/UserInterface.exe
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-build
 
 build _deps/nlohmann_json-build/all: phony
 
@@ -356,20 +517,27 @@ build _deps/nlohmann_json-build/all: phony
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLConfig.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLConfigVersion.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLTargets-debug.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLTargets-release.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLTargets.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/vcpkg-cmake-wrapper.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/zlib/vcpkg-cmake-wrapper.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake C$:/Users/Frederik/CLionProjects/GameServerTest/CMakeLists.txt C$:/Users/Frederik/CLionProjects/GameServerTest/Client/CMakeLists.txt C$:/Users/Frederik/CLionProjects/GameServerTest/Server/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLConfig.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLConfigDependencies.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLConfigVersion.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLStaticTargets-debug.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLStaticTargets-release.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLStaticTargets.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDependentOption.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/ExternalProject.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/ExternalProject/shared_internal_commands.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FetchContent.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FetchContent/CMakeLists.cmake.in E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindGit.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindZLIB.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/GNUInstallDirs.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX-ABI.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake _deps/nlohmann_json-src/CMakeLists.txt _deps/nlohmann_json-src/cmake/config.cmake.in _deps/nlohmann_json-src/cmake/nlohmann_jsonConfigVersion.cmake.in _deps/nlohmann_json-src/cmake/pkg-config.pc.in
+build build.ninja: RERUN_CMAKE | C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLConfig.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLConfigVersion.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLTargets-debug.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLTargets-release.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLTargets.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/vcpkg-cmake-wrapper.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/zlib/vcpkg-cmake-wrapper.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake C$:/Users/Frederik/CLionProjects/MultiplayerGame/CMakeLists.txt C$:/Users/Frederik/CLionProjects/MultiplayerGame/Client/CMakeLists.txt C$:/Users/Frederik/CLionProjects/MultiplayerGame/Server/CMakeLists.txt C$:/Users/Frederik/CLionProjects/MultiplayerGame/UserInterface/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLConfig.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLConfigDependencies.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLConfigVersion.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLStaticTargets-debug.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLStaticTargets-release.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLStaticTargets.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QJp2Plugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QMngPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QSvgIconPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QSvgPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QVirtualKeyboardPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QWebGLIntegrationPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsIntegrationPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Widgets/Qt5Widgets_QWindowsVistaStylePlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5/Qt5Config.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5/Qt5ConfigVersion.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5/Qt5ModuleLocation.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDependentOption.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineRCCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseArguments.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCCompiler.cmake.in S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystem.cmake.in S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestRCCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/ExternalProject.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/ExternalProject/shared_internal_commands.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FetchContent.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FetchContent/CMakeLists.cmake.in S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindGit.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindZLIB.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/GNUInstallDirs.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Determine-CXX.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX-ABI.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake _deps/nlohmann_json-src/CMakeLists.txt _deps/nlohmann_json-src/cmake/config.cmake.in _deps/nlohmann_json-src/cmake/nlohmann_jsonConfigVersion.cmake.in _deps/nlohmann_json-src/cmake/pkg-config.pc.in
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLConfig.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLConfigVersion.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLTargets-debug.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLTargets-release.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLTargets.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/vcpkg-cmake-wrapper.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/zlib/vcpkg-cmake-wrapper.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake C$:/Users/Frederik/CLionProjects/GameServerTest/CMakeLists.txt C$:/Users/Frederik/CLionProjects/GameServerTest/Client/CMakeLists.txt C$:/Users/Frederik/CLionProjects/GameServerTest/Server/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLConfig.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLConfigDependencies.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLConfigVersion.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLStaticTargets-debug.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLStaticTargets-release.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLStaticTargets.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDependentOption.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/ExternalProject.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/ExternalProject/shared_internal_commands.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FetchContent.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FetchContent/CMakeLists.cmake.in E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindGit.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindZLIB.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/GNUInstallDirs.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX-ABI.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake E$:/JetBrains/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake _deps/nlohmann_json-src/CMakeLists.txt _deps/nlohmann_json-src/cmake/config.cmake.in _deps/nlohmann_json-src/cmake/nlohmann_jsonConfigVersion.cmake.in _deps/nlohmann_json-src/cmake/pkg-config.pc.in: phony
+build C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLConfig.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLConfigVersion.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLTargets-debug.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLTargets-release.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/CURLTargets.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/curl/vcpkg-cmake-wrapper.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/zlib/vcpkg-cmake-wrapper.cmake C$:/Users/Frederik/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake C$:/Users/Frederik/CLionProjects/MultiplayerGame/CMakeLists.txt C$:/Users/Frederik/CLionProjects/MultiplayerGame/Client/CMakeLists.txt C$:/Users/Frederik/CLionProjects/MultiplayerGame/Server/CMakeLists.txt C$:/Users/Frederik/CLionProjects/MultiplayerGame/UserInterface/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLConfig.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLConfigDependencies.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLConfigVersion.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLStaticTargets-debug.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLStaticTargets-release.cmake E$:/CLion/x64/SFML-2.6.1/lib/cmake/SFML/SFMLStaticTargets.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QJp2Plugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QMngPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QSvgIconPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QSvgPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QVirtualKeyboardPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QWebGLIntegrationPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsIntegrationPlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5Widgets/Qt5Widgets_QWindowsVistaStylePlugin.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5/Qt5Config.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5/Qt5ConfigVersion.cmake E$:/MSYS2/mingw64/lib/cmake/Qt5/Qt5ModuleLocation.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDependentOption.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineRCCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseArguments.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCCompiler.cmake.in S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystem.cmake.in S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestRCCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/ExternalProject.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/ExternalProject/shared_internal_commands.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FetchContent.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FetchContent/CMakeLists.cmake.in S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindGit.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindZLIB.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/GNUInstallDirs.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Determine-CXX.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX-ABI.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake S$:/CLion$ 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake _deps/nlohmann_json-src/CMakeLists.txt _deps/nlohmann_json-src/cmake/config.cmake.in _deps/nlohmann_json-src/cmake/nlohmann_jsonConfigVersion.cmake.in _deps/nlohmann_json-src/cmake/pkg-config.pc.in: phony
+
+
+#############################################
+# Clean additional files.
+
+build CMakeFiles/clean.additional: CLEAN_ADDITIONAL
+  CONFIG = Debug
 
 
 #############################################
 # Clean all the built files.
 
-build clean: CLEAN
+build clean: CLEAN CMakeFiles/clean.additional
 
 
 #############################################

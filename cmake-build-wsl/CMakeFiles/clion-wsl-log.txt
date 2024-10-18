@@ -1,0 +1,4 @@
+C:\Windows\system32\wsl.exe --distribution Ubuntu --exec "/mnt/e/JetBrains/CLion 2024.1.1/bin/ttyfix" /bin/bash -c "export CLION_IDE=TRUE && export CMAKE_COLOR_DIAGNOSTICS=ON && export JETBRAINS_IDE=TRUE && cd /mnt/c/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-wsl && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G Ninja -S /mnt/c/Users/Frederik/CLionProjects/MultiplayerGame -B /mnt/c/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-wsl"
+CMake Error: CMake was unable to find a build program corresponding to "Ninja".  CMAKE_MAKE_PROGRAM is not set.  You probably need to select a different build tool.
+CMake Error: CMAKE_CXX_COMPILER not set, after EnableLanguage
+-- Configuring incomplete, errors occurred!
