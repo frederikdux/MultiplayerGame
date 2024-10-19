@@ -1,7 +1,5 @@
 C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-build/CMakeFiles/edit_cache.dir
-C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-build/CMakeFiles/rebuild_cache.dir
 C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/Client/CMakeFiles/Client.dir
 C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/Client/CMakeFiles/edit_cache.dir
 C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/Client/CMakeFiles/rebuild_cache.dir

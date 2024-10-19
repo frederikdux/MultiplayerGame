@@ -39,14 +39,8 @@ endif()
 # Suche nach ZLIB
 find_package(ZLIB REQUIRED)
 
-# Fetch nlohmann_json
-include(FetchContent)
-FetchContent_Declare(
-        nlohmann_json
-        GIT_REPOSITORY https://github.com/nlohmann/json.git
-        GIT_TAG v3.11.3
-)
-FetchContent_MakeAvailable(nlohmann_json)
+
+include_directories(C:/Users/Frederik/CLionProjects/MultiplayerGame/include/nlohmann)
 
 # Füge Unterverzeichnisse für Server, Client und UserInterface hinzu
 add_subdirectory(Client)

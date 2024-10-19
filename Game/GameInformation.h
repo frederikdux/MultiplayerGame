@@ -11,7 +11,7 @@
 #include <ostream>
 #include <stdexcept>
 #include <vector>
-#include <nlohmann/json.hpp>
+#include <json.hpp>
 
 #include "Bullet.h"
 #include "EnemyInformation.h"

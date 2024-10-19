@@ -8,7 +8,7 @@
 #include <zlib.h>
 #include <enet/enet.h>
 #include <curl/curl.h>
-#include <nlohmann/json.hpp>
+#include "json.hpp"
 
 #include "../Game/GameInformation.h"
 #include "../Game/MessageType.h"

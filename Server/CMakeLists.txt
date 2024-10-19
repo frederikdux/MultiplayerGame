@@ -28,12 +28,11 @@ target_link_libraries(Server
         sfml-network
         ${ENET_LIBRARY}
         CURL::libcurl
-        nlohmann_json::nlohmann_json
 )
 
 # Include directories for the target
 target_include_directories(Server PRIVATE ${CURL_INCLUDE_DIRS})
 
-set_target_properties(Client PROPERTIES
+set_target_properties(Server PROPERTIES
         COMPILE_FLAGS "-g -O0"  # Optional, um sicherzustellen, dass Debug-Flags verwendet werden
 )

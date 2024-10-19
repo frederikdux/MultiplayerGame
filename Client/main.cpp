@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Client.h"
 #include <iostream>
-#include <nlohmann/json.hpp>
+#include <json.hpp>
 #include <fstream>
 #include <thread>
 

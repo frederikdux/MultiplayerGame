@@ -84,6 +84,7 @@
 	"MOC_INCLUDES" : 
 	[
 		"C:/Users/Frederik/CLionProjects/enet/include",
+		"C:/Users/Frederik/CLionProjects/MultiplayerGame/include/nlohmann",
 		"E:/MSYS2/mingw64/include",
 		"E:/MSYS2/mingw64/include/QtWidgets",
 		"E:/MSYS2/mingw64/include/QtGui",

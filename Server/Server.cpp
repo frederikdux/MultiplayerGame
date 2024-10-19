@@ -5,12 +5,13 @@
 #include <thread>
 #include <vector>
 #include <curl/curl.h>
-#include <nlohmann/json.hpp>
+#include "json.hpp"
 #include <mutex>
 #include <variant>
 #include <fcntl.h>
 #include <csignal>
 #include <unistd.h>
+#include <math.h>
 #include "../Game/GameInformation.h"
 #include "../Game/EnemyInformation.h"
 #include "../Game/MessageType.h"

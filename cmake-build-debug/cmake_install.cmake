@@ -39,7 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/_deps/nlohmann_json-build/cmake_install.cmake")
   include("C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/Client/cmake_install.cmake")
   include("C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/Server/cmake_install.cmake")
   include("C:/Users/Frederik/CLionProjects/MultiplayerGame/cmake-build-debug/UserInterface/cmake_install.cmake")

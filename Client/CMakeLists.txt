@@ -25,7 +25,6 @@ target_link_libraries(Client
         sfml-network
         ${ENET_LIBRARY}
         CURL::libcurl
-        nlohmann_json::nlohmann_json
         ZLIB::ZLIB
 )
 
